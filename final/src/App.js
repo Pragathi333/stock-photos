@@ -38,17 +38,17 @@ function App() {
       const response = await fetch(url);
       const data = await response.json();
       console.log()
-      // setPhotos((oldPhotos) => {
-      //   if (query && page === 1) {
-      //     return data.results;
-      //   } else if (query) {
-      //     return [...oldPhotos, ...data.results];
-      //   } else {
-      //     return [...oldPhotos, ...data];
-      //   }
-      // });
-      // setNewImages(false);
-      // setLoading(false);
+      setPhotos((oldPhotos) => {
+        if (query && page === 1) {
+          return data.results;
+        } else if (query) {
+          return [...oldPhotos, ...data.results];
+        } else {
+          return [...oldPhotos, ...data];
+        }
+      });
+      setNewImages(false);
+      setLoading(false);
     } catch (error) {
       setNewImages(false);
 
